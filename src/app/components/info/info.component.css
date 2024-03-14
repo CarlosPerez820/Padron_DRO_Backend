@@ -1,0 +1,130 @@
+.title-conteiner{
+  padding-top: 30px;
+  font-size: 25px;
+  background-color:  #242424;
+  width: auto;
+  height: 50px;
+  text-align: center;
+  color: white;
+  align-items: center;
+}
+
+#map { height: 450px }
+
+.custom-divider {
+  background-color: rgb(255, 255, 255); 
+  height: 2px; 
+  margin-top: 10px; 
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 60px;
+}
+
+.menu{
+  background-color: #242424;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: auto;
+}
+
+.buttons-menu{
+  font-size: 16px;
+  color: white !important;
+}
+
+.buttons{
+  margin-top: 30px;
+  width: 65%;
+  height: 40px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-color: #45922e !important; 
+  color: white !important;
+}
+
+.card-container {
+  background-image: url('../../../assets/img/fondo2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+
+.card-container::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px); /* Aplica un desenfoque al fondo */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+  
+.card {
+  max-width: 380px;
+  width: 370px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin: 0 20px 50px 20px;
+  text-align: center;
+  align-items: center;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+  
+.card p{
+  color: rgb(0, 0, 0); 
+  font-size: 16px;
+}
+
+.transparent{
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.options-container{
+  padding: 5px;
+  max-width: 800px;
+  width: 800px;
+  z-index: 1;
+  margin-bottom: 50px;
+}
+  
+.card img{
+  margin-top: 15px;
+  width: 250px;
+  height: 310px;
+  border-radius: 40px;
+  margin-bottom: 18px;
+/*  object-fit: cover;*/
+}
+
+.text-green{
+  color: green; /* Color para el valor de card.status */
+  font-weight:450; /* Utiliza un peso de fuente en negrita para el título */
+}
+
+.text-red{
+color: rgb(174, 11, 11); /* Color para el valor de card.status */
+font-weight:450; /* Utiliza un peso de fuente en negrita para el título */
+}
+
+.ancho{
+    width: 100%;
+    background-color: rgba(245, 0, 0, 0);
+}
+
+.ancho2{
+    width: 80%;
+}

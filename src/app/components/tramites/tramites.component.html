@@ -1,0 +1,98 @@
+<div class="title-conteiner">
+  <h1>DIRECTOR RESPONSABLE DE OBRA</h1>
+  <mat-divider class="custom-divider"></mat-divider>
+</div>
+
+<div class="menu">
+  <button mat-button color="primary" class="buttons-menu">Curriculum</button>
+  <button mat-button color="primary" class="buttons-menu">Ubicación</button>
+  <button mat-button color="primary" class="buttons-menu">Mi Tramite</button>
+  <button mat-button color="primary" class="buttons-menu">Formatos</button>
+</div>
+
+<div class="card-container">
+  <mat-card *ngFor="let card of cards" class="card">
+    <img mat-card-image src="{{ card.image }}" alt="{{ card.name }}">
+    <mat-card-content>
+      <h1>
+        <span class="label">Status: </span>
+        <span [ngClass]="{ 'text-green': card.status === 'Vigente', 'text-red': card.status === 'Vencida' }">{{ card.status }}</span>
+      </h1>
+      <h2>{{ card.name }}</h2>
+      <p>Dirección: {{ card.addess }}</p>
+      <p>CP:{{ card.cp }}</p>
+      <p>Telefono: {{ card.cel }}</p>
+      <p>Correo: {{ card.email }}</p>
+      <p>
+        <span>Registro DRO: </span>
+        <span class="text-red">{{ card.register }}</span>
+      </p>
+      <button mat-raised-button color="primary" class="buttons">Contactame</button>
+    </mat-card-content>
+  </mat-card>
+
+  <!--
+  <div class="documents-container">
+    <mat-grid-list cols="2" rowHeight="100px">
+      <mat-grid-tile colspan="2" class="transparent">
+        <h1>Requisitos:</h1>
+      </mat-grid-tile>
+      <mat-grid-tile class="transparent">
+        <h2>Copia de escritura, este es un texto largo para ver como se veria uno :</h2>
+      </mat-grid-tile>
+      <mat-grid-tile class="transparent">
+        <button mat-raised-button (click)="fileInput.click()"  color="primary" class="ancho2">Archivo</button>
+        <input type="file" #fileInput style="display: none;" 
+        accept="image/*,.pdf">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" class="transparent">
+        <button mat-raised-button color="primary" class="buttons2">Enviar Información</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  -->
+
+  <div class="documents-container2">
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+      <!-- Campos de contacto -->
+      <h1>Datos de Contacto:</h1>
+      <mat-form-field class="ancho2">
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput formControlName="nombreCompleto">
+      </mat-form-field>
+    
+      <mat-form-field class="ancho2">
+        <mat-label>Numero de contacto</mat-label>
+        <input matInput formControlName="numeroContacto" placeholder="Ex. Pizza">
+      </mat-form-field>
+    
+      <!-- Campos de documentación -->
+      <h1>Documentación Requerida:</h1>
+      <div class="requisito" *ngFor="let campo of campos, let i = index">
+        <h2>{{ campo }}</h2>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Ruta del archivo</mat-label>
+          <input matInput readonly [value]="input.value" #input>
+        </mat-form-field>     
+
+        <button mat-raised-button type="button" (click)="fileInput.click()" color="primary" class="ancho2">Seleccionar Archivo</button>
+
+        <input type="file" #fileInput style="display: none;" formControlName="{{ campo.toLowerCase() }}"
+         (change)="onFileSelected($event, input)" accept="image/*,.pdf">
+        <mat-divider></mat-divider>
+      </div>
+    
+      <!-- Botón de enviar -->
+      <button mat-raised-button color="primary" class="buttons" type="submit">Enviar Información</button>
+    </form>
+    
+    
+  </div>
+
+
+
+</div>
+
+
+<!--*ngFor="let campo of campos"-->

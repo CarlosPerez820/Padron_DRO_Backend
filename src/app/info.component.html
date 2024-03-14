@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+<div class="title">
+    <h1>DIRECTOR RESPONSABLE DE OBRA</h1>
+    <mat-divider class="custom-divider"></mat-divider>
+
+</div>
+
+<div class="menu">
+    <button mat-button color="primary" class="buttons" matRipple>Curriculum</button>
+    <button mat-button color="primary" class="buttons">Ubicación</button>
+    <button mat-button color="primary" class="buttons">Mi Tramite</button>
+    <button mat-button color="primary" class="buttons">Formatos</button>
+
+  </div>
+  
+<div class="card-container">
+
+  <mat-card *ngFor="let card of cards" class="card">
+    <img mat-card-image src="{{ card.image }}" alt="{{ card.name }}">
+    <mat-card-content>
+      <h1>
+        <span class="label">Status: </span>
+        <span [ngClass]="{ 'value': card.status === 'Vigente', 'value2': card.status === 'Vencida' }">{{ card.status }}</span>
+      </h1>
+      <h2>{{ card.name }}</h2>
+
+      <p>Dirección: {{ card.addess }}</p>
+      <p>CP:{{ card.cp }}</p>
+      <p>Telefono: {{ card.cel }}</p>
+      <p>Correo: {{ card.email }}</p>
+      <p>
+        <span>Registro DRO: </span>
+        <span class="value2">{{ card.register }}</span>
+      </p>
+      <button mat-raised-button color="primary" class="buttons2" matRipple>Contactame</button>
+    </mat-card-content>
+  </mat-card>
+
+      <div class="card2">
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile class="pruebaFondo"><h4>Servicios Disponibles:</h4></mat-grid-tile>
+            
+            <mat-grid-tile class="pruebaFondo">
+                <mat-form-field class="ancho">
+                    <mat-label>Servicios</mat-label>
+                    <mat-select name="food">
+                        <mat-option *ngFor="let food of servicios" [value]="food.value">{{food.viewValue}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile class="pruebaFondo"><h4>Tramites Disponibles:</h4></mat-grid-tile>
+            <mat-grid-tile class="pruebaFondo">
+
+                <mat-form-field class="ancho">
+                    <mat-label>Tramites</mat-label>
+                    <mat-select name="food">
+                        <mat-option *ngFor="let food of tramites" [value]="food.value">{{food.viewValue}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile class="pruebaFondo"><h4></h4></mat-grid-tile>
+            <mat-grid-tile class="pruebaFondo">
+                <button mat-raised-button color="primary" class="buttons2" (click)="redirigir()" matRipple>Cotizar</button>
+
+            </mat-grid-tile>
+            
+
+          </mat-grid-list>
+
+        <div id="map"></div>
+
+        <mat-grid-list cols="2" rowHeight="100px">
+
+            <mat-grid-tile colspan="2" class="pruebaFondo">
+                <button mat-raised-button color="primary" class="ancho2" (click)="action()" matRipple>Ubicame</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+        </div>
+</div>
+
+

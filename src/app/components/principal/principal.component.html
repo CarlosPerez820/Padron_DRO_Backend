@@ -1,0 +1,20 @@
+  <div class="titleContainer">
+    <h1>LISTA DE SERVICIOS CADROC</h1>
+  </div>
+  
+  <div class="main-container">
+    <div class="card-container">
+        <mat-card *ngFor="let card of cards" class="card">
+          <img mat-card-image src="{{ card.image }}" alt="{{ card.title }}" loading="lazy">
+          <mat-card-content>
+            <h1>{{ card.title }}</h1>
+            <p>{{ card.description }}</p>
+            <div style="text-align: center;">
+              <button mat-raised-button (click)="redireccion()" class="buttons">Consultar</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  </div>
+
+

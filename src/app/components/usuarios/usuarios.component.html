@@ -1,0 +1,33 @@
+<div class="title">
+  <h1>PADRON DE CORRESPOSABLES</h1>
+</div>
+  
+
+<div class="body">
+  <div class="card-container">
+    <mat-card *ngFor="let card of cards" class="card">
+      <img mat-card-image src="{{ card.image }}" alt="{{ card.name }}" loading="lazy">
+      <mat-card-content>
+        <h1>
+          <span class="label">Status: </span>
+          <span [ngClass]="{ 'value': card.status === 'Vigente', 'value2': card.status === 'Vencida' }">{{ card.status }}</span>
+        </h1>
+        <h2>{{ card.name }}</h2>
+
+        <p>Dirección: {{ card.addess }}</p>
+        <p>CP:{{ card.cp }}</p>
+        <p>Telefono: {{ card.cel }}</p>
+        <p>
+          <span>Registro DRO: </span>
+          <span class="value2">{{ card.register }}</span>
+        </p>
+
+        <button mat-raised-button [ngClass]="{ 'buttons': card.status === 'Vigente'}" (click)="redireccion()">
+          Consultar
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+

@@ -1,0 +1,82 @@
+.title{
+  padding-top: 30px;
+  background-color:  #242424;
+  width: auto;
+  height: 50px;
+  text-align: center;
+  color: white;
+}
+  
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  position: relative; 
+  /*  Fondo */
+  background-image: url('../../../assets/img/fondo3.jpg');
+  background-size: cover;     
+  background-position: center;          
+  background-attachment: fixed;
+}
+
+.card-container::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(5px); /* Aplica un desenfoque al fondo */
+  background-color: rgba(0, 0, 0, 0.2);
+}
+  
+.buttons{
+  margin-top: 30px;
+  width: 65%;
+  height: 40px;
+  font-size: 20px;
+  margin-bottom: 10px;  
+  background-color: #45922e !important;
+  color: white !important;
+}
+
+.card {
+  max-width: 380px;
+  width: 370px;
+  border-radius: 15px;
+  padding-top: 25px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  /*transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;*/
+  margin: 0 20px 50px 20px;
+  text-align: center;
+  align-items: center;
+  z-index: 1;
+
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.card p{
+  color: rgb(0, 0, 0); 
+  font-size: 16px;
+}
+
+.value {
+    color: green;
+    font-weight:450;
+
+}
+.value2 {
+  color: rgb(174, 11, 11);
+  font-weight:450;
+
+}
+  
+.card img{
+  width: 250px;
+  height: 310px;
+  border-radius: 40px;
+  margin-bottom: 18px;
+}
+
